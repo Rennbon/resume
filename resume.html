@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>朱斌的个人简历</title>
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+    <style>
+        body { width:842px;padding:45px;border:1px solid black;margin: auto;font-size: 14px}
+        #layer1 {display: flex}
+        #leftbase { flex-basis: 69%;}
+        #rightbase{ flex-basis: 29%;border-left: 1px solid #eee;background-color: #ffe;}
+        #rightbase td:first-child {font-weight: bold;color:#777; }
+        #rightbase td {color: #888;}
+        #info>span:nth-child(1){font-weight: bold;color: #777;font-size: 14px;}
+        #info>span:nth-child(2){font-weight: bold;color: #777;font-size: 14px;}
+        #info>span:nth-child(3){font-weight: bold;color: #777;font-size: 14px;}
+        #info>span:nth-child(4){font-weight: bold;color: #777;font-size: 14px;}
+        .info_head {text-align: center; height:35px;font-size: 20px; line-height: 35px;background-color:#555;color: cornsilk;}
+
+        .info_border{padding: 10px 20px;color: #777;background-color: #ffe;}
+
+        .leftHeader {text-align: center; height:35px;font-size: 20px; line-height: 35px;background-color:#555;color: cornsilk;}
+        .left_border{padding: 10px 20px;color: #777;background-color: #ffe;}
+
+
+        #assessment_border>div {margin-bottom: 4px;}
+        .assessment_argument {font-weight: bold;color:#444;font-size: 16px;margin-right: 4px;}
+        .assessment_sort {color:#555;font-size: 14px;padding-right: 5px;}
+
+        #careertb td:nth-child(1){font-weight: bold;color:#555;width:60px;margin-left: 5px;}
+        #careertb td:nth-child(3){font-weight: bold;color:#555;width:85px;margin-left: 5px; }
+        #careertb td:nth-child(2){color: #888;width: 210px;}
+        #careertb td:nth-child(4){color: #888;}
+        .careerLine {background-color: #999;height:20px;}
+        dd{color:#777;}
+
+
+        #projectTitle {background-color:#444;text-align: center; height:35px;font-size: 20px; line-height: 35px;color: cornsilk;}
+    </style>
+</head>
+<body>
+<div id="resume">
+<!-- 简历概要 --->
+<div id="layer1">
+    <!-- 左 --->
+    <span id="leftbase">
+        <!-- 评价 --->
+
+        <div>
+            <div id="assessment" class="leftHeader">选我的理由</div>
+            <div class="left_border">
+                <div>
+                    <span class="assessment_sort">1.</span><span class="assessment_argument"> 做事有规划，有文档才有真相</span> 懂得同事间协作沟通的重要性，善于分解规划项目，经手项目必定附带详细文档，大到项目开发文档，服务器部署文档，小到数据类图结构设计，api文档。
+                </div>
+                <div>
+                    <span class="assessment_sort">2.</span><span class="assessment_argument">后端主力</span>多语言开发（主要为Golang,.Net,也用Python，Swift写过项目）,服务过的公司的核心代码都留有我的足迹，同时对Web端，移动端也有了解，好的后端需要懂前端，懂服务器，懂性能优化，懂架构设计。
+                </div>
+                <div>
+                    <span class="assessment_sort">3.</span><span class="assessment_argument">有产品经验</span>
+                </div>
+            </div>
+        </div>
+        <!--- 工作履历-->
+        <div id="careertb">
+             <div id="career" class="leftHeader">服务过的公司</div>
+             <div  v-for="career in careers">
+                 <div class="left_border">
+                     <table >
+                         <tr>
+                             <td>时间段</td>
+                             <td>{{career.period1}}</td>
+                             <td>时间跨度</td>
+                             <td>{{career.period2}}</td>
+
+                         </tr>
+                         <tr>
+                             <td>公司名称</td>
+                             <td>{{career.cpname}}</td>
+                             <td>主营业务</td>
+                             <td>{{career.dowhat}}</td>
+                         </tr>
+                         <tr>
+                             <td>职位</td>
+                             <td>{{career.postion}}</td>
+                             <td>薪资</td>
+                             <td>{{career.salary}}</td>
+                         </tr>
+                         <tr>
+                             <td >离职原因</td>
+                             <td colspan="3">{{career.reason}}</td>
+                         </tr>
+                         <tr>
+                             <td valign="top">职责</td>
+                             <td colspan="3" v-html="career.duty"></td>
+                         </tr>
+                     </table>
+                 </div>
+                 <div class="careerLine"></div>
+             </div>
+
+        </div>
+
+    </span>
+    <!-- 右 --->
+    <span id="rightbase">
+        <div class="info_border">
+            <img src="face.jpeg" alt="" style="width: 120px;height: 120px;border-radius: 60px;position: relative;left:46px;margin:20px 0px;">
+
+            <div id="info" style="padding-left: 10px;">
+                <span style="font-size: 22px;font-weight: normal;">{{myInfo.name}}</span>
+                <span style="border-radius:8px;padding:0 5px;background-color: dodgerblue;color: #eeffff">{{myInfo.gendar}}</span>
+                <span>{{myInfo.experience}}</span>
+                <span>{{myInfo.edu}}</span>
+            </div>
+            <table>
+                <tr>
+                    <td>手机</td>
+                    <td>{{myInfo.phone}}</td>
+                </tr>
+                <tr>
+                    <td>邮箱</td>
+                    <td>{{myInfo.mail}}</td>
+                </tr>
+                <tr>
+                    <td>户籍</td>
+                    <td>{{myInfo.census}}</td>
+                </tr>
+                <tr>
+                    <td>生日</td>
+                    <td>{{myInfo.birthday}}</td>
+                </tr>
+            </table>
+        </div>
+        <!-- 求职意向 --->
+        <div>
+            <div class="info_head">求职意向</div>
+            <div class="info_border">
+            <table>
+                <tr>
+                    <td>职位</td>
+                    <td>{{myInfo.position}}</td>
+                </tr>
+                <tr>
+                    <td>语言</td>
+                    <td>{{myInfo.lang}}</td>
+                </tr>
+                <tr>
+                    <td>薪资</td>
+                    <td>{{myInfo.salary}}</td>
+                </tr>
+            </table>
+            </div>
+        </div>
+
+        <!-- 教育背景 --->
+        <div>
+            <div class="info_head">教育背景</div>
+            <div class="info_border">
+            <table>
+                <tr>
+                    <td>学校</td>
+                    <td>{{myInfo.colleage}}</td>
+                </tr>
+                <tr>
+                    <td>时间段</td>
+                    <td>{{myInfo.span}}</td>
+                </tr>
+                <tr>
+                    <td>专业</td>
+                    <td>{{myInfo.major}}</td>
+                </tr>
+            </table>
+            </div>
+        </div>
+
+        <!-- 求生欲 --->
+        <div>
+            <div class="info_head">个人求生欲</div>
+            <div class="info_border">
+            <div>{{myInfo.forlive}}
+            </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="info_head">技能池</div>
+            <div class="info_border">
+            <div style="display: inline-block;padding: 4px;" v-for="ab in myInfo.abilities">
+                <span style="padding:0 5px;display: inline;background-color: salmon;border-radius: 10px;color:white;">{{ab.name}}</span>
+
+            </div>
+            </div>
+        </div>
+         <div>
+            <div class="info_head">技术社交</div>
+            <div class="info_border">
+            <div v-for="blog in myInfo.blogs" style="position: relative;">
+                <img :src="blog.img" style="height: 20px;width: 20px;margin-top:5px;">
+                <div style="font-size: 8px;height:30px;line-height: 30px; position: absolute;left:30px;top:0px;">
+                    <a :href="blog.link" style="color: lightskyblue;">{{blog.url}}</a>
+                </div>
+            </div>
+            </div>
+        </div>
+    </span>
+</div>
+<!-- 相对重要的项目-->
+<div>
+    <div id="projectTitle">项目简介</div>
+    <div style="padding: 20px;">
+        <table>
+            <tr>
+                <td width="60px;">项目类型</td>
+                <td width="40%">短音频社交</td>
+                <td width="60px;">时间段</td>
+                <td>2019-4 至 2019-10</td>
+            </tr>
+            <tr>
+                <td>担任角色</td>
+                <td>项目经理/架构/产品</td>
+            </tr>
+            <tr>
+                <td>项目描述</td>
+                <td>一个结合短音频及区块链资产的社交软件</td>
+            </tr>
+            <tr>
+                <td>职责</td>
+                <td>负责项目架构设计，运维自动化，部分核心代码编写，项目设计，开发，测试等流程安排</td>
+                <td>难点</td>
+                <td>项目采用承包负责制，一下子要权衡一个项目从面向市场人群，到产品设计到技术迭代是之前没有尝试过的，时间变得不够用，合理安排项目的分工，各流程的衔接是最难的</td>
+            </tr>
+            <tr>
+                <td>详细描述</td>
+                <td>负责项目架构设计，运维自动化，部分核心代码编写，项目设计，开发，测试等流程安排</td>
+                <td>难点</td>
+                <td>项目采用承包负责制，一下子要权衡一个项目从面向市场人群，到产品设计到技术迭代是之前没有尝试过的，时间变得不够用，合理安排项目的分工，各流程的衔接是最难的</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+</div>
+<script>
+    new Vue({
+        el: '#resume',
+        data: {
+            careers: [
+                {
+                    period1:"2018-07 至 2020-02",
+                    period2:"1年7个月",
+                    cpname:"上海二秒科技有限公司",
+                    postion:"项目开发经理",
+                    salary:"25k*12+年终+代币",
+                    reason:"受疫情影响，公司关闭",
+                    dowhat:"区块链相关",
+                    duty:"<div>1. 项目架构设计，核心代码实现。</div>"+
+                         "<div>2. 项目管理，流程安排，协调组员完成任务。</div>"  +
+                         "<div>3. 运维部署，自动化发布流程搭建。</div>" +
+                         "<div>4. 技术培训，分享。 </div>"
+                    ,
+                },
+                {
+                    period1:"2015-12 至 2018-06",
+                    period2:"2年6个月",
+                    cpname:"上海万企明道软件有限公司",
+                    postion:"研发经理",
+                    salary:"19k*12+年终",
+                    reason:"受疫情影响，公司关闭",
+                    dowhat:"企业协作Saas云平台",
+                    duty:"<div>1. 企业协作Saas平台下的项目管理及会议日程两个模块的项目管理及部分后端事务。</div>" +
+                         "<div>2. 面向用户的自定义控件组件（所有表单都可以灵活自定义，并支持数据公式勾稽）及评论组件的后端设计及代码实现。</div>" +
+                         "<div>3. 技术调研，架构搭建，生产环境代码及数据库层面的性能优化</div>" +
+                         "<div>4. 新人技术培训，分享</div>"
+                    ,
+                },
+                {
+                    period1:"2015-09 至 2015-11",
+                    period2:"2个月",
+                    cpname:"健医信息科技(上海)股份有限公司",
+                    postion:"后端开发",
+                    salary:"11k/月",
+                    reason:"无事可做,对职业发展不利",
+                    dowhat:"面向机构的保险平台",
+                    duty:"网络爬虫",
+                },
+                {
+                    period1:"2015-03 至 2015-09",
+                    period2:"6个月",
+                    cpname:"Panli代购",
+                    postion:"后端开发",
+                    salary:"7k/月+绩效",
+                    reason:"参与项目停止主推，将处于维护状态",
+                    dowhat:"跨境代购电商",
+                    duty:"电商积分优惠券系统及社区的迭代维护",
+                },
+                {
+                    period1:"2014-06 至 2015-03",
+                    period2:"9个月",
+                    cpname:"上海实地信息技术有限公司",
+                    postion:"全栈开发",
+                    salary:"4.5K/月",
+                    reason:"加薪幅度与能力不匹配",
+                    dowhat:"外包公司（驻跨国物流）",
+                    duty:"负责OCS国际快递预算系统的迭代与维护",
+                },
+
+
+            ],
+            myInfo: {
+                name:"朱斌",
+                experience:"6年经验",
+                gendar:"男",
+                edu:"大专",
+                birthday:"1989-11-17",
+                census:"上海",
+                phone:"13671523112",
+                mail:"3436972@qq.com",
+                wechat:"13671523112",
+                forlive:"因为得之不易，方知万事需要珍惜，学生时期的贪玩，踏入社会的艰难，使我深刻体会知识，经验以及协作的可贵，坚信总有公司认可使我有所作为。",
+                colleage:"上海科学技术职业学院",
+                major:"应用电子",
+                span:"2008-09 至 2011-07",
+                position:"高级开发/研发经理",
+                lang:"Golang",
+                salary:">=30k",
+                blogs:[
+                    {
+                        img:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1581435283658&di=d4ec52a57c853aa45f1a174804742a44&imgtype=jpg&src=http%3A%2F%2Fdichanyi.com%2Fimages%2Fcase-dongme%2Fyeyu%2F8.png",
+                        url:"jianshu.com/u/f04a917ae0f5",
+                        link:"https://www.jianshu.com/u/f04a917ae0f"
+
+                    },{
+                        img:"https://static.zhipin.com/zhipin-geek/v131/web/geek-vue/static/images/icon-sns-githubb.c8863514.png",
+                        url:"github.com/Rennbon",
+                        link:"https://github.com/Rennbon"
+                    }
+                ],
+                abilities:[
+                    {
+                        name:"Mysql",
+                        score:8,
+                    },
+                    {
+                        name:"Mongodb",
+                        score:9,
+                    },
+                    {
+                        name:"Golang",
+                        score:8,
+                    },
+                    {
+                        name:".Net",
+                        score:7,
+                    },
+                    {
+                        name:"Python",
+                        score:3,
+                    },
+                    {
+                        name:"docker",
+                        score:4,
+                    },{
+                        name:"jenkins",
+                        score:5,
+                    },
+                    {
+                        name:"elasticsearch",
+                        score:3,
+                    },
+                    {
+                        name:"Mssql",
+                        score:7,
+                    },
+                    {
+                        name:"influxdb",
+                        score:3,
+                    },
+                    {
+                        name:"kafka",
+                        score:4,
+                    },
+                    {
+                        name:"redis",
+                        score:5,
+                    },
+                    {
+                        name:"codis",
+                        socre:5,
+
+                    },
+                    {
+                        name:"javascript",
+                        socre:6,
+                    },
+                    {
+                        name:"linux",
+                        socre:4,
+                    },{
+                        name:"Axure",
+                        socre:"7",
+                    },{
+                        name:"postgresql",
+                        socre:"4",
+                    }
+                ],
+            },
+            projects:[
+                {
+                    item:"短音频社交",
+                    role:"项目经理/架构/产品",
+                    timespan:"2019-04 至 2019-10",
+                    desc:'一个结合短音频及区块链资产的社交软件',
+                    difficulty:"项目采用承包负责制，一下子要权衡一个项目从面向市场人群，到产品设计到技术迭代是之前没有尝试过的，时间变得不够用，合理安排项目的分工，各流程的衔接是最难的",
+                    skill:"自研API Gateway + gRPC + CentOS + MongoDB replica set + MySQL主从 + Codis + Nginx + Golang + Docker + Kafka",
+                    detail:"<div></div>",
+                }
+            ]
+        }
+    })
+</script>
+</body>
+</html>
