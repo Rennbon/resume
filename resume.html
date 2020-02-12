@@ -18,7 +18,7 @@
         .info_head {text-align: center; height:35px;font-size: 20px; line-height: 35px;background-color:#555;color: cornsilk;}
 
         .info_border{padding: 10px 20px;color: #777;background-color: #ffe;}
-
+        .info_border td:nth-child(1){width: 50px;}
         .leftHeader {text-align: center; height:35px;font-size: 20px; line-height: 35px;background-color:#555;color: cornsilk;}
         .left_border{padding: 10px 20px;color: #777;background-color: #ffe;}
 
@@ -34,8 +34,16 @@
         .careerLine {background-color: #999;height:20px;}
         dd{color:#777;}
 
-
+        #pj{background-color: #ffe;}
+        .projectb {padding:10px 20px;}
+        .projectb td:nth-child(1){width:60px; font-weight: bold;color:#555;}
+        .projectb td:nth-child(2){width:40%; color:#888;}
+        .projectb td:nth-child(3){width:60px; font-weight: bold;color:#555;}
+        .projectb td:nth-child(4){width:40%; color:#888;}
         #projectTitle {background-color:#444;text-align: center; height:35px;font-size: 20px; line-height: 35px;color: cornsilk;}
+
+        .retract {padding-left: 20px;}
+
     </style>
 </head>
 <body>
@@ -47,7 +55,7 @@
         <!-- 评价 --->
 
         <div>
-            <div id="assessment" class="leftHeader">选我的理由</div>
+            <div id="assessment" class="leftHeader">个人优势</div>
             <div class="left_border">
                 <div>
                     <span class="assessment_sort">1.</span><span class="assessment_argument"> 做事有规划，有文档才有真相</span> 懂得同事间协作沟通的重要性，善于分解规划项目，经手项目必定附带详细文档，大到项目开发文档，服务器部署文档，小到数据类图结构设计，api文档。
@@ -62,7 +70,7 @@
         </div>
         <!--- 工作履历-->
         <div id="careertb">
-             <div id="career" class="leftHeader">服务过的公司</div>
+             <div id="career" class="leftHeader">工作经历</div>
              <div  v-for="career in careers">
                  <div class="left_border">
                      <table >
@@ -154,7 +162,7 @@
 
         <!-- 教育背景 --->
         <div>
-            <div class="info_head">教育背景</div>
+            <div class="info_head">教育经历</div>
             <div class="info_border">
             <table>
                 <tr>
@@ -170,6 +178,26 @@
                     <td>{{myInfo.major}}</td>
                 </tr>
             </table>
+            </div>
+        </div>
+
+        <div>
+            <div class="info_head">培训经历</div>
+            <div class="info_border">
+                <table>
+                    <tr>
+                        <td>机构</td>
+                        <td>上海华育培训</td>
+                    </tr>
+                    <tr>
+                        <td>时间段</td>
+                        <td>2013-08 至 2014-06</td>
+                    </tr>
+                    <tr>
+                        <td>描述</td>
+                        <td>软件技术培训</td>
+                    </tr>
+                </table>
             </div>
         </div>
 
@@ -205,38 +233,40 @@
     </span>
 </div>
 <!-- 相对重要的项目-->
-<div>
-    <div id="projectTitle">项目简介</div>
-    <div style="padding: 20px;">
-        <table>
+<div id="pj">
+    <div id="projectTitle">重要项目简介</div>
+
+    <div v-for="pro in projects">
+        <table class="projectb" >
             <tr>
-                <td width="60px;">项目类型</td>
-                <td width="40%">短音频社交</td>
-                <td width="60px;">时间段</td>
-                <td>2019-4 至 2019-10</td>
+                <td>项目类型</td>
+                <td>{{pro.item}}</td>
+                <td>时间段</td>
+                <td>{{pro.timespan}}</td>
             </tr>
             <tr>
                 <td>担任角色</td>
-                <td>项目经理/架构/产品</td>
+                <td>{{pro.role}}</td>
+                <td>人员数量</td>
+                <td>{{pro.member}}</td>
             </tr>
             <tr>
-                <td>项目描述</td>
-                <td>一个结合短音频及区块链资产的社交软件</td>
+                <td valign="top">难点</td>
+                <td colspan="3" v-html="pro.difficulty"></td>
             </tr>
             <tr>
-                <td>职责</td>
-                <td>负责项目架构设计，运维自动化，部分核心代码编写，项目设计，开发，测试等流程安排</td>
-                <td>难点</td>
-                <td>项目采用承包负责制，一下子要权衡一个项目从面向市场人群，到产品设计到技术迭代是之前没有尝试过的，时间变得不够用，合理安排项目的分工，各流程的衔接是最难的</td>
+                <td valign="top">项目描述</td>
+                <td colspan="3"   v-html="pro.desc"></td>
             </tr>
             <tr>
-                <td>详细描述</td>
-                <td>负责项目架构设计，运维自动化，部分核心代码编写，项目设计，开发，测试等流程安排</td>
-                <td>难点</td>
-                <td>项目采用承包负责制，一下子要权衡一个项目从面向市场人群，到产品设计到技术迭代是之前没有尝试过的，时间变得不够用，合理安排项目的分工，各流程的衔接是最难的</td>
+                <td valign="top">职责</td>
+                <td colspan="3" v-html="pro.duty"></td>
             </tr>
+
         </table>
+        <div class="careerLine"></div>
     </div>
+
 </div>
 
 </div>
@@ -327,7 +357,7 @@
                     {
                         img:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1581435283658&di=d4ec52a57c853aa45f1a174804742a44&imgtype=jpg&src=http%3A%2F%2Fdichanyi.com%2Fimages%2Fcase-dongme%2Fyeyu%2F8.png",
                         url:"jianshu.com/u/f04a917ae0f5",
-                        link:"https://www.jianshu.com/u/f04a917ae0f"
+                        link:"https://www.jianshu.com/u/f04a917ae0f5"
 
                     },{
                         img:"https://static.zhipin.com/zhipin-geek/v131/web/geek-vue/static/images/icon-sns-githubb.c8863514.png",
@@ -406,13 +436,90 @@
             },
             projects:[
                 {
+                    item:"监控安防",
+                    role:"独立负责",
+                    timespan:"2019-12 至 2019-12",
+                    desc:'针对海康威视网络摄像头视频业务，对视频中的人物进行身份分析，及一些摄像头权限操作。',
+                    difficulty:
+                      "海康威视没有直接支持Python的开源库，需要自行封装，各种库兼容性差，环境搭建难"
+                    ,
+                    skill:"Python + windonws",
+                    member:1,
+                    duty:"实现Python调用海康威视SDK动态库，完成硬件产品对接及二次开发。"
+                    ,
+                    ext: [
+                        "https://www.jianshu.com/p/c3c4bf3d1ef8",
+                    ]
+                },
+                {
                     item:"短音频社交",
                     role:"项目经理/架构/产品",
                     timespan:"2019-04 至 2019-10",
                     desc:'一个结合短音频及区块链资产的社交软件',
-                    difficulty:"项目采用承包负责制，一下子要权衡一个项目从面向市场人群，到产品设计到技术迭代是之前没有尝试过的，时间变得不够用，合理安排项目的分工，各流程的衔接是最难的",
+                    difficulty:"项目采用承孵化制，一下子要权衡一个项目从面向市场人群，到产品设计到技术迭代是之前没有尝试过的，时间变得不够用，合理安排项目的分工，各流程的衔接是最难的",
                     skill:"自研API Gateway + gRPC + CentOS + MongoDB replica set + MySQL主从 + Codis + Nginx + Golang + Docker + Kafka",
-                    detail:"<div></div>",
+                    member:9,
+                    duty:"<div>1. 项目开发人员分工，周期安排，架构设计，制定代码规范，开发文档编写，Code review。</div>" +
+                           "<div>2. 参与部分产品原型制作（Axure），产品评审。</div>" +
+                           "<div>3. 项目架构设计，采用微服务架构，微服务使用DDD领域驱动设计，并和CTO一起实现了自研API Gateway 及配套的一些SDK，实现了微服务的统一调度。</div>" +
+                           "<div style=\"padding-left: 20px;\">3.1 API Gateway实现了服务发现，请求限流，一致性hash路由，统一接入。</div>"+
+                           "<div style=\"padding-left: 20px;\">3.2 API Gateway SDK则是对gRPC服务的封装，是基于gRPC的微服务加入了MVC的风格,自动完成服务注册，API文档生成。</div>"+
+                           "<div>4. 生产及测试Linux环境搭建，Jenkins自动化部署配置(Golang + Gitlab私有仓库+Docker Private Registry)。</div>"+
+                           "<div>5. pprof框架性能测试案例编写</div>" +
+                           "<div>6. 百度云对象存储Object-C 转Swift SDK编写</div>"
+                    ,
+                    ext: [
+                        "https://github.com/2SE/dolphin",
+                        "https://github.com/2SE/dolphin-sdk",
+                    ],
+                },
+                {
+                    item:"类联盟链项目",
+                    role:"后端开发",
+                    timespan:"2018-09 至 2019-03",
+                    desc:"多链互通，一个主链，多个子链，主链子链可跨链验证，子链受制于主链共识。",
+                    difficulty:
+                        "子链创世块需要结合主链交易生成及跨链交易的验证"
+                    ,
+                    skill:"Golang + LevelDB",
+                    member:4,
+                    duty:"完成主链子链存储，跨链及txpool的设计与实现",
+                    ext: [
+                        "https://github.com/sixexorg/magnetic-ring",
+                    ]
+                },
+                {
+                    item:"多币种钱包",
+                    role:"独立负责",
+                    timespan:"2018-09 至 2018-11",
+                    desc:"<div>币种HD钱包实现了一个私钥衍生各币种公私钥，可定制子私钥深度，统一管理多币种精确度差异，离线签名及发送交易。同时支持单币种间多交易阻塞功能，可以配置交易成功后方可发起下笔交易，并配备内部地址交易监听，将所有交易明细记入与MySQL</div>"
+                       ,
+                    difficulty:
+                        "<div>多币种钱包架构统一抽象，实现泛型调用<div>"
+                    ,
+                    skill:"Golang + BadgerDB + MySQL",
+                    member:1,
+                    duty:"完成HD钱包代码并编写开源文档，方便拓展维护",
+                    ext: [
+                        "https://github.com/boxproject/boxwallet",
+                    ]
+                },
+                {
+                    item:"面向用户表单自定义组件",
+                    role:"后端",
+                    timespan:"2016-11 至 2016-12",
+                    desc:'可以由按照不同需求选取各种控件配置出合适的表单，自定义控件组件为mingdao.com企业协作平台下主打的一个底层核心功能，项目管理，人事表单，工作表等都引用了此组件',
+                    difficulty:
+                            "<div>1. 面向用户的控件kv的动态存储设计，挑选了NoSQL的mongodb<div>" +
+                            "<div>2. 公式控件可以将数字金额类的控件勾稽起来，对于引用控件的计算处理，循环引用处理</div>"
+                    ,
+                    skill:".Net + MongoDB",
+                    member:1,
+                    duty:"完成组件后端开发，编写详细开发文档供前端调用"
+                    ,
+                    ext: [
+                        "www.mingdao.com",
+                    ]
                 }
             ]
         }
