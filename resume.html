@@ -5,10 +5,10 @@
     <title>朱斌的个人简历</title>
     <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
     <style>
-        body { width:842px;padding:45px;border:1px solid black;margin: auto;font-size: 14px}
+        body { width:842px;margin:auto;padding:45px;background-color:#eff;font-size: 14px}
         #layer1 {display: flex}
-        #leftbase { flex-basis: 69%;}
-        #rightbase{ flex-basis: 29%;border-left: 1px solid #eee;background-color: #ffe;}
+        #leftbase { flex-basis: 560px;}
+        #rightbase{ flex-basis: 282px;border-left: 1px solid #eee;background-color: #ffe;}
         #rightbase td:first-child {font-weight: bold;color:#777; }
         #rightbase td {color: #888;}
         #info>span:nth-child(1){font-weight: bold;color: #777;font-size: 14px;}
@@ -34,14 +34,15 @@
         .careerLine {background-color: #999;height:20px;}
         dd{color:#777;}
 
-        #pj{background-color: #ffe;}
+        #pj{background-color: #ffe;margin-top: 10px;}
         .projectb {padding:10px 20px;}
-        .projectb td:nth-child(1){width:60px; font-weight: bold;color:#555;}
+        .projectb td:nth-child(1){width:60px; font-weight: bold;color:#555;text-align: center;}
         .projectb td:nth-child(2){width:40%; color:#888;}
         .projectb td:nth-child(3){width:60px; font-weight: bold;color:#555;}
         .projectb td:nth-child(4){width:40%; color:#888;}
         #projectTitle {background-color:#444;text-align: center; height:35px;font-size: 20px; line-height: 35px;color: cornsilk;}
 
+        a{color: lightskyblue;}
         .retract {padding-left: 20px;}
 
     </style>
@@ -58,13 +59,16 @@
             <div id="assessment" class="leftHeader">个人优势</div>
             <div class="left_border">
                 <div>
-                    <span class="assessment_sort">1.</span><span class="assessment_argument"> 做事有规划，有文档才有真相</span> 懂得同事间协作沟通的重要性，善于分解规划项目，经手项目必定附带详细文档，大到项目开发文档，服务器部署文档，小到数据类图结构设计，api文档。
+                    <span class="assessment_sort">1.</span><span class="assessment_argument">做事有规划，有责任心，有文档才有真相</span> 懂得同事间协作沟通的重要性，善于分解规划项目，经手项目必定附带详细文档，文档是为了更快更好的实施项目。
                 </div>
                 <div>
-                    <span class="assessment_sort">2.</span><span class="assessment_argument">后端主力</span>多语言开发（主要为Golang,.Net,也用Python，Swift写过项目）,服务过的公司的核心代码都留有我的足迹，同时对Web端，移动端也有了解，好的后端需要懂前端，懂服务器，懂性能优化，懂架构设计。
+                    <span class="assessment_sort">2.</span><span class="assessment_argument">核心主力</span>多语言开发（主要为Golang,.Net,也用Python，Swift写过项目）,同时对Web端，移动端也有了解，参与过多个项目架构设计及核心代码编写，有生产环境优化经验(日UV数过万)。
                 </div>
                 <div>
-                    <span class="assessment_sort">3.</span><span class="assessment_argument">有产品经验</span>
+                    <span class="assessment_sort">3.</span><span class="assessment_argument">有产品经验</span>直接间接参与过Saas企业协作软件及社交软件等产品原型设计及制作。
+                </div>
+                <div>
+                    <span class="assessment_sort">4.</span><span class="assessment_argument">学习能力强</span>业余时间会通过一些知识付费软件，书籍，线下课程学习调研一些当前热门技术知识，能够让自己更好的拓展知识面，更好的完成工作（如Golang,docker,jenkins等都是业余所学而后运用实践）。
                 </div>
             </div>
         </div>
@@ -112,8 +116,7 @@
     <!-- 右 --->
     <span id="rightbase">
         <div class="info_border">
-            <img src="face.jpeg" alt="" style="width: 120px;height: 120px;border-radius: 60px;position: relative;left:46px;margin:20px 0px;">
-
+            <img :src="myInfo.face" alt="" style="width: 120px;height: 150px;background-repeat: no-repeat;position: relative;left:58px;margin:10px 0px;">
             <div id="info" style="padding-left: 10px;">
                 <span style="font-size: 22px;font-weight: normal;">{{myInfo.name}}</span>
                 <span style="border-radius:8px;padding:0 5px;background-color: dodgerblue;color: #eeffff">{{myInfo.gendar}}</span>
@@ -156,6 +159,10 @@
                     <td>薪资</td>
                     <td>{{myInfo.salary}}</td>
                 </tr>
+                <tr>
+                    <td>状态</td>
+                    <td>{{myInfo.state}}</td>
+                </tr>
             </table>
             </div>
         </div>
@@ -184,6 +191,21 @@
         <div>
             <div class="info_head">培训经历</div>
             <div class="info_border">
+                <table>
+                    <tr>
+                        <td>机构</td>
+                        <td>上海万通教育</td>
+                    </tr>
+                    <tr>
+                        <td>时间段</td>
+                        <td>2019-12 至 今</td>
+                    </tr>
+                    <tr>
+                        <td>描述</td>
+                        <td>考研培训</td>
+                    </tr>
+                </table>
+                <div style="height:2px;background-color: #ccc"></div>
                 <table>
                     <tr>
                         <td>机构</td>
@@ -225,7 +247,7 @@
             <div v-for="blog in myInfo.blogs" style="position: relative;">
                 <img :src="blog.img" style="height: 20px;width: 20px;margin-top:5px;">
                 <div style="font-size: 8px;height:30px;line-height: 30px; position: absolute;left:30px;top:0px;">
-                    <a :href="blog.link" style="color: lightskyblue;">{{blog.url}}</a>
+                    <a :href="blog.link">{{blog.url}}</a>
                 </div>
             </div>
             </div>
@@ -238,31 +260,38 @@
 
     <div v-for="pro in projects">
         <table class="projectb" >
-            <tr>
+            <tr style="background-color:#feb" >
                 <td>项目类型</td>
                 <td>{{pro.item}}</td>
                 <td>时间段</td>
                 <td>{{pro.timespan}}</td>
             </tr>
-            <tr>
+            <tr style="background-color:#fec" >
                 <td>担任角色</td>
                 <td>{{pro.role}}</td>
                 <td>人员数量</td>
                 <td>{{pro.member}}</td>
             </tr>
-            <tr>
-                <td valign="top">难点</td>
+            <tr style="background-color:#feb" >
+                <td>难点</td>
                 <td colspan="3" v-html="pro.difficulty"></td>
             </tr>
-            <tr>
-                <td valign="top">项目描述</td>
+            <tr style="background-color:#fec" >
+                <td>项目描述</td>
                 <td colspan="3"   v-html="pro.desc"></td>
             </tr>
-            <tr>
-                <td valign="top">职责</td>
+            <tr style="background-color:#feb" >
+                <td>技术栈</td>
+                <td colspan="3"   v-html="pro.skill"></td>
+            </tr>
+            <tr style="background-color:#fec" >
+                <td >职责</td>
                 <td colspan="3" v-html="pro.duty"></td>
             </tr>
-
+            <tr style="background-color:#feb" >
+                <td >相关链接</td>
+                <td colspan="3" v-html="pro.ext"></td>
+            </tr>
         </table>
         <div class="careerLine"></div>
     </div>
@@ -330,7 +359,7 @@
                     postion:"全栈开发",
                     salary:"4.5K/月",
                     reason:"加薪幅度与能力不匹配",
-                    dowhat:"外包公司（驻跨国物流）",
+                    dowhat:"外包（驻跨国物流）",
                     duty:"负责OCS国际快递预算系统的迭代与维护",
                 },
 
@@ -338,13 +367,15 @@
             ],
             myInfo: {
                 name:"朱斌",
+                state:"离职中",
                 experience:"6年经验",
+                face:"face.jpg",
                 gendar:"男",
                 edu:"大专",
                 birthday:"1989-11-17",
                 census:"上海",
                 phone:"13671523112",
-                mail:"3436972@qq.com",
+                mail:"343688972@qq.com",
                 wechat:"13671523112",
                 forlive:"因为得之不易，方知万事需要珍惜，学生时期的贪玩，踏入社会的艰难，使我深刻体会知识，经验以及协作的可贵，坚信总有公司认可使我有所作为。",
                 colleage:"上海科学技术职业学院",
@@ -447,9 +478,8 @@
                     member:1,
                     duty:"实现Python调用海康威视SDK动态库，完成硬件产品对接及二次开发。"
                     ,
-                    ext: [
-                        "https://www.jianshu.com/p/c3c4bf3d1ef8",
-                    ]
+                    ext:"<a href='https://www.jianshu.com/p/c3c4bf3d1ef8'>https://www.jianshu.com/p/c3c4bf3d1ef8</a>",
+
                 },
                 {
                     item:"短音频社交",
@@ -468,10 +498,9 @@
                            "<div>5. pprof框架性能测试案例编写</div>" +
                            "<div>6. 百度云对象存储Object-C 转Swift SDK编写</div>"
                     ,
-                    ext: [
-                        "https://github.com/2SE/dolphin",
-                        "https://github.com/2SE/dolphin-sdk",
-                    ],
+                    ext: "<a href='https://github.com/2SE/dolphin'>https://github.com/2SE/dolphin</a>"+
+                            "<a href='https://github.com/2SE/dolphin-sdk'>https://github.com/2SE/dolphin-sdk</a>"
+                        ,
                 },
                 {
                     item:"类联盟链项目",
@@ -484,9 +513,8 @@
                     skill:"Golang + LevelDB",
                     member:4,
                     duty:"完成主链子链存储，跨链及txpool的设计与实现",
-                    ext: [
-                        "https://github.com/sixexorg/magnetic-ring",
-                    ]
+                    ext:"<a href='https://github.com/sixexorg/magnetic-ring'>https://github.com/sixexorg/magnetic-ring</a>",
+
                 },
                 {
                     item:"多币种钱包",
@@ -500,12 +528,11 @@
                     skill:"Golang + BadgerDB + MySQL",
                     member:1,
                     duty:"完成HD钱包代码并编写开源文档，方便拓展维护",
-                    ext: [
-                        "https://github.com/boxproject/boxwallet",
-                    ]
+                    ext:"<a href='https://github.com/boxproject/boxwallet'>https://github.com/boxproject/boxwallet</a>",
+
                 },
                 {
-                    item:"面向用户表单自定义组件",
+                    item:"面向用户的表单自定义组件",
                     role:"后端",
                     timespan:"2016-11 至 2016-12",
                     desc:'可以由按照不同需求选取各种控件配置出合适的表单，自定义控件组件为mingdao.com企业协作平台下主打的一个底层核心功能，项目管理，人事表单，工作表等都引用了此组件',
@@ -517,9 +544,9 @@
                     member:1,
                     duty:"完成组件后端开发，编写详细开发文档供前端调用"
                     ,
-                    ext: [
-                        "www.mingdao.com",
-                    ]
+                    ext: "<a href='www.mingdao.com'>www.mingdao.com</a>",
+
+
                 }
             ]
         }
