@@ -59,16 +59,19 @@
             <div id="assessment" class="leftHeader">个人优势</div>
             <div class="left_border">
                 <div>
-                    <span class="assessment_sort">1.</span><span class="assessment_argument">做事有规划，有责任心，有文档才有真相</span> 懂得同事间协作沟通的重要性，善于分解规划项目，经手项目必定附带详细文档，文档是为了更快更好的实施项目。
+                    <span class="assessment_sort">1.</span><span class="assessment_argument">做事有规划，有责任心，有文档才有真相</span> 懂得同事间协作沟通的重要性，善于分解规划项目，经手项目必定附带详细文档，文档是为了更快更好的实施项目，估期都比较准。
                 </div>
                 <div>
-                    <span class="assessment_sort">2.</span><span class="assessment_argument">核心主力</span>多语言开发（主要为Golang,.Net,也用Python，Swift写过项目）,同时对Web端，移动端也有了解，参与过多个项目架构设计及核心代码编写，有生产环境优化经验(日UV数过万)。
+                    <span class="assessment_sort">2.</span><span class="assessment_argument">技术能力硬</span>对项目宏观及微观都有一定的见解，多语言开发（主要为Golang,.Net,也用Python，Swift写过项目）,同时对Web端，移动端也有了解，参与过多个项目架构设计及核心代码编写（细如区块链数据传输编解码库），有生产环境优化经验(日UV数过万，数据为亿级)。
                 </div>
                 <div>
                     <span class="assessment_sort">3.</span><span class="assessment_argument">有产品经验</span>直接间接参与过Saas企业协作软件及社交软件等产品原型设计及制作。
                 </div>
                 <div>
-                    <span class="assessment_sort">4.</span><span class="assessment_argument">学习能力强</span>业余时间会通过一些知识付费软件，书籍，线下课程学习调研一些当前热门技术知识，能够让自己更好的拓展知识面，更好的完成工作（如Golang,docker,jenkins等都是业余所学而后运用实践）。
+                    <span class="assessment_sort">4.</span><span class="assessment_argument">问题解决能力强</span>经过多年工作经验的积累，深知解决问题需要了解本质，善于阅读技术相关源码，资料，及作者思路来解决项目遇到的问题（第三方开源项目和公司内部项目都适用）。
+                </div>
+                <div>
+                    <span class="assessment_sort">5.</span><span class="assessment_argument">学习能力强</span>业余时间会通过一些知识付费软件，书籍，线下课程学习调研一些当前热门技术知识，能够让自己更好的拓展知识面，与以上4点相辅相成。
                 </div>
             </div>
         </div>
@@ -234,7 +237,7 @@
             </div>
         </div>
 
-        <!-- 求生欲 --->
+        <!--
         <div>
             <div class="info_head">个人求生欲</div>
             <div class="info_border">
@@ -242,7 +245,7 @@
             </div>
             </div>
         </div>
-
+        -->
         <div>
             <div class="info_head">技能池</div>
             <div class="info_border">
@@ -257,7 +260,7 @@
 </div>
 <!-- 相对重要的项目-->
 <div id="pj">
-    <div id="projectTitle">重要项目简介</div>
+    <div id="projectTitle">重要项目简介(同类型只写一个)</div>
 
     <div v-for="pro in projects">
         <table class="projectb" >
@@ -378,7 +381,7 @@
                 phone:"13671523112",
                 mail:"343688972@qq.com",
                 wechat:"13671523112",
-                forlive:"因为得之不易，方知万事需要珍惜，学生时期的贪玩，踏入社会的艰难，使我深刻体会知识，经验以及协作的可贵，坚信总有公司认可使我有所作为。",
+                //forlive:"得知不易，方知万事需要珍惜，未雨绸缪，",
                 colleage:"上海科学技术职业学院",
                 major:"应用电子",
                 span:"2008-09 至 2011-07",
@@ -411,6 +414,10 @@
                         score:8,
                     },
                     {
+                        name:"勇于发表观点",
+                        socre:6,
+                    },
+                    {
                         name:".Net",
                         score:7,
                     },
@@ -428,6 +435,9 @@
                     {
                         name:"elasticsearch",
                         score:3,
+                    },{
+                        name:"微服务相关",
+                        socre:"5",
                     },
                     {
                         name:"Mssql",
@@ -451,6 +461,10 @@
 
                     },
                     {
+                        name:"文档能力",
+                        score:4,
+                    },
+                    {
                         name:"javascript",
                         socre:6,
                     },
@@ -460,12 +474,20 @@
                     },{
                         name:"Axure",
                         socre:"7",
+                    },
+                    {
+                        name:"乐于分享",
+                        socre:6,
                     },{
                         name:"postgresql",
                         socre:"4",
                     },{
                         name:"prometheus",
                         socre:"4",
+                    },
+                    {
+                        name:"loading...",
+                            socre:6,
                     }
                 ],
             },
@@ -480,7 +502,7 @@
                     ,
                     skill:"Python + windows",
                     member:1,
-                    duty:"实现Python调用海康威视SDK动态库，完成硬件产品对接及二次开发。"
+                    duty:"实现Python调用海康威视SDK动态库，完成硬件产品对接及二次开发。期间整理了一些比较好的python对海康威视SDK调用资料查找的线路图，帮助多位海康威视社区的二次开发人员解决问题。"
                     ,
                     ext:"<a href='https://www.jianshu.com/p/c3c4bf3d1ef8'>https://www.jianshu.com/p/c3c4bf3d1ef8</a>",
 
@@ -496,27 +518,30 @@
                     duty:"<div>1. 项目开发人员分工，周期安排，架构设计，制定代码规范，开发文档编写，Code review。</div>" +
                            "<div>2. 参与部分产品原型制作（Axure），产品评审。</div>" +
                            "<div>3. 项目架构设计，采用微服务架构，微服务使用DDD领域驱动设计，并和CTO一起实现了自研API Gateway 及配套的一些SDK，实现了微服务的统一调度。</div>" +
-                           "<div style=\"padding-left: 20px;\">3.1 API Gateway实现了服务发现，请求限流，一致性hash路由，统一接入。</div>"+
-                           "<div style=\"padding-left: 20px;\">3.2 API Gateway SDK则是对gRPC服务的封装，是基于gRPC的微服务加入了MVC的风格,自动完成服务注册，API文档生成。</div>"+
+                           "<div style=\"padding-left: 20px;\">3.1 API Gateway实现了服务发现，请求限流，一致性hash路由，统一接入，并通过pprof性能检测。</div>"+
+                           "<div style=\"padding-left: 20px;\">3.2 API Gateway SDK则是对gRPC服务的封装，是基于gRPC的微服务加入了MVC的风格,自动完成服务注册，API文档生成，切面拦截，链路追踪等功能，初始化通过反射加载服务，运行期间无反射。</div>"+
                            "<div>4. 生产及测试Linux环境搭建，Jenkins自动化部署配置(Golang + Gitlab私有仓库+Docker Private Registry)。</div>"+
                            "<div>5. pprof框架性能测试案例编写</div>" +
-                           "<div>6. 百度云对象存储Object-C 转Swift SDK编写</div>"
+                           "<div>6. 百度云对象存储Object-C 转Swift SDK编写</div>"+
+                           "<div>7. 部分业务模块编写及优化<div>"
                     ,
                     ext: "<a href='https://github.com/2SE/dolphin'>https://github.com/2SE/dolphin</a>"+
                             "<a href='https://github.com/2SE/dolphin-sdk'>https://github.com/2SE/dolphin-sdk</a>"
                         ,
                 },
                 {
-                    item:"类联盟链项目",
-                    role:"后端开发",
-                    timespan:"2018-09 至 2019-03",
-                    desc:"多链互通，一个主链，多个子链，主链子链可跨链验证，子链受制于主链共识。",
+                    item: "类联盟链项目",
+                    role: "后端开发",
+                    timespan: "2018-09 至 2019-03",
+                    desc: "多链互通，一个主链，多个子链，主链子链可跨链验证，子链受制于主链共识。",
                     difficulty:
-                        "子链创世块需要结合主链交易生成及跨链交易的验证"
+                        "<div>1.子链创世块需要结合主链交易生成及跨链交易的验证</div" +
+                        "<div>2.数据预处理及落库，并保证分布式处理的数据一致性</div>"
+
                     ,
                     skill:"Golang + LevelDB",
                     member:4,
-                    duty:"完成主链子链存储，跨链及txpool的设计与实现",
+                    duty:"完成主链子链存储，跨链及txpool的设计与实现，因为区块链本质实为分部署数据库，数据落库及区块链挖矿（预验证）操作采用oplog的设计思路将每个事务操作分解为最小原子完成数据有效性合法性验证，而后分批落库。",
                     ext:"<a href='https://github.com/sixexorg/magnetic-ring'>https://github.com/sixexorg/magnetic-ring</a>",
 
                 },
@@ -531,22 +556,61 @@
                     ,
                     skill:"Golang + BadgerDB + MySQL",
                     member:1,
-                    duty:"完成HD钱包代码并编写开源文档，方便拓展维护",
+                    duty:"完成HD钱包架构设计及开发，并编写开源接入文档，期间被虫洞社区邀请成为虫洞签约作者。",
                     ext:"<a href='https://github.com/boxproject/boxwallet'>https://github.com/boxproject/boxwallet</a>",
+
+                },
+                {
+                    item:"Es调研及Es client for .Net项目封装简化使用难度",
+                    role:"后端",
+                    timespan:"2017-08 至 2017-09",
+                    desc:'调研ElasticSearch并将其封装运用',
+                    difficulty:
+                        "<div>将ES官方提供的Nest框架进行封装，简化开发难度<div>"
+                    ,
+                    skill:".Net Core + Es ",
+                    member:1,
+                    duty:"针对ES .NET client Nest进行封装，使所有功能支持lamda及Linq（如script等，部分功能通过反射完成），简化普通业务开发工作量。"
+                    ,
+                    ext: "",
+
 
                 },
                 {
                     item:"面向用户的表单自定义组件",
                     role:"后端",
                     timespan:"2016-11 至 2016-12",
-                    desc:'可以由按照不同需求选取各种控件配置出合适的表单，自定义控件组件为mingdao.com企业协作平台下主打的一个底层核心功能，项目管理，人事表单，工作表等都引用了此组件',
+                    desc:'可以由按照不同需求选取各种控件配置出合适的表单，自定义控件组件为mingdao.com企业协作平台下主打的一个底层核心功能，项目管理，人事表单，工作表等都引用了此组件。只要拖拖拉拉就能定制出想要的项目管理（数据量为千万级过亿的状态），人事审批，SRM等表单，',
                     difficulty:
-                            "<div>1. 面向用户的控件kv的动态存储设计，挑选了NoSQL的mongodb<div>" +
-                            "<div>2. 公式控件可以将数字金额类的控件勾稽起来，对于引用控件的计算处理，循环引用处理</div>"
+                            "<div>1. 面向用户的控件kv的动态存储设计，比如一个注册姓名填写框，不能直接数据库建一个user表和name的键就搞定了<div>" +
+                            "<div>2. 公式控件可以将数字金额类的控件勾稽起来，对于引用控件的计算处理，循环引用处理</div>"+
+                            "<div>3. 批量修改控件时，如何让控件维持原子性变动，以及已写控件的值的变动</div>" +
+                            "<div>4. 如何做到组件化，让其他模块更简单的接入此功能</div>"
                     ,
                     skill:".Net + MongoDB",
                     member:1,
-                    duty:"完成组件后端开发，编写详细开发文档供前端调用"
+                    duty:"完成组件后端开发，编写详细开发文档供前端调用，借鉴有限状态机，抽象语法树，并结合NOSQL数据库mongodb（动态化存储，二进制衍生查询等）的优势实现底层库。"
+                    ,
+                    ext: "<a href='www.mingdao.com'>www.mingdao.com</a>",
+
+
+                },
+                {
+                    item:"明道软件整体重构",
+                    role:"后端",
+                    timespan:"2016-02 至 2016-08",
+                    desc:'整个平台重构，项目的发展，一些难修的bug及项目的老架构已经不足以支撑项目。负责该平台后端中最重要的2个模块的重构，将项目以微服务的方式解耦出来，并将用户评论组件化。',
+                    difficulty:
+                        "<div>1. 负责项目的代码量庞大，改完后统计行数10万朝上。<div>" +
+                        "<div>2. 老逻辑中前任留下了很多坑，一个接口执行多种功能操作等需要重新梳理，包括一些慢查询重构，逻辑重组，数据库拆分等。</div>"+
+                        "<div>3. 传统一站式服务重构成基于grpc的微服务</div>"
+                    ,
+                    skill:".Net Core+Golang+MongoDB+MySQL+MSSQL+Linux+Windows+Codis+gRPC+Docker",
+                    member:15,
+                    duty:"<div>1. 团队合作完成数据库拆分，重构，微服务架构设计及依赖</div"+
+                         "<div>2. 项目管理及日程管理模块API重新定义，并完成该两模块全部后端逻辑重构及优化，改动量8成以上</div>"+
+                         "<div>3. 共有评论模块组件化，微服务化，方便其他模块接入<div>"+
+                         "<div>4. 慢查询优化，缓存优化+索引优化</div>"
                     ,
                     ext: "<a href='www.mingdao.com'>www.mingdao.com</a>",
 
